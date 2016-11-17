@@ -1,6 +1,6 @@
 <?php
 
-class TypeController
+class TypeController extends Controller
 {
     public function manageGetVerb(Request $request)
     {

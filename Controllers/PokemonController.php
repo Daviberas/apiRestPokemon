@@ -2,7 +2,7 @@
 
 require_once "Controller.php";
 
-class PokemonController
+class PokemonController extends Controller
 {
     public function manageGetVerb(Request $request)
     {
