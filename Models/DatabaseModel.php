@@ -16,7 +16,7 @@ class DatabaseModel
 
     private function __construct()
     {
-        $config = parse_ini_file('config/config.ini');
+        $config = parse_ini_file('Config/config.ini');
 
         $this->_connection = new mysqli($config['host'], $config['username'],
             $config['password'], $config['dbname']);
