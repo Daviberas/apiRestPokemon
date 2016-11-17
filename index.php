@@ -9,14 +9,14 @@ function apiAutoload($classname)
     $res = false;
 
     if (preg_match('/[a-zA-Z]+Controller$/', $classname)) {
-        if (file_exists(__DIR__ . '/controller/' . $classname . '.php')) {
-            require_once __DIR__ . '/controller/' . $classname . '.php';
+        if (file_exists(__DIR__ . '/Controllers/' . $classname . '.php')) {
+            require_once __DIR__ . '/Controllers/' . $classname . '.php';
             $res = true;
         }
     } elseif (preg_match('/[a-zA-Z]+Model$/', $classname)) {
-        if (file_exists(__DIR__ . '/model/' . $classname . '.php')) {
+        if (file_exists(__DIR__ . '/Models/' . $classname . '.php')) {
 
-            require_once __DIR__ . '/model/' . $classname . '.php';
+            require_once __DIR__ . '/Models/' . $classname . '.php';
 
             $res = true;
         }
