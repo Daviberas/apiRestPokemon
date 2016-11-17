@@ -4,7 +4,7 @@ require_once "ConsTypeModel.php";
 
 class TypeHandlerModel
 {
-    public static function getPokemon($id)
+    public static function getType($id)
     {
         $listaTypes = null;
 
