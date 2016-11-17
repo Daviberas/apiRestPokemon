@@ -1,5 +1,7 @@
 <?php
 
+require_once "Controller.php";
+
 class TypeController extends Controller
 {
     public function manageGetVerb(Request $request)
