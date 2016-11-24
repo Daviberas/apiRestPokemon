@@ -18,7 +18,7 @@ class PokemonHandlerModel
             $query = "SELECT " . \ConstantesDB\ConsPokemonModel::NUM . ","
                 . \ConstantesDB\ConsPokemonModel::NAME . ","
                 . \ConstantesDB\ConsPokemonModel::TYPE1. ","
-                . \ConstantesDB\ConsPokemonModel::TYPE2 . ","
+                . \ConstantesDB\ConsPokemonModel::TYPE2
                 . " FROM " . \ConstantesDB\ConsPokemonModel::TABLE_NAME;
 
 
