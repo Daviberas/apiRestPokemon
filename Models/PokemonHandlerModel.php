@@ -14,7 +14,8 @@ class PokemonHandlerModel
 
         $valid = self::isValid($id);
 
-        if ($valid === true || $id == null) {
+        if ($valid === true || $id == null)
+        {
             $query = "SELECT " . \ConstantesDB\ConsPokemonModel::NUM . ","
                 . \ConstantesDB\ConsPokemonModel::NAME . ","
                 . \ConstantesDB\ConsPokemonModel::TYPE1. ","
@@ -22,13 +23,15 @@ class PokemonHandlerModel
                 . " FROM " . \ConstantesDB\ConsPokemonModel::TABLE_NAME;
 
 
-            if ($id != null) {
+            if ($id != null)
+            {
                 $query = $query . " WHERE " . \ConstantesDB\ConsPokemonModel::NUM . " = ?";
             }
 
             $prep_query = $db_connection->prepare($query);
 
-            if ($id != null) {
+            if ($id != null)
+            {
                 $prep_query->bind_param('s', $id);
             }
 

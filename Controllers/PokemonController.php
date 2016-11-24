@@ -12,24 +12,30 @@ class PokemonController extends Controller
         $response = null;
         $code = null;
 
-        if (isset($request->getUrlElements()[2])) {
+        if (isset($request->getUrlElements()[2]))
+        {
             $id = $request->getUrlElements()[2];
         }
 
 
         $listaPokemon = PokemonHandlerModel::getPokemon($id);
 
-        if ($listaPokemon != null) {
+        if ($listaPokemon != null)
+        {
             $code = '200';
 
-        } else {
+        }
+        else
+            {
 
-            if (PokemonHandlerModel::isValid($id)) {
+                if (PokemonHandlerModel::isValid($id))
+                {
                 $code = '404';
-            } else {
-                $code = '400';
-            }
-
+                }
+                else
+                {
+                    $code = '400';
+                }
         }
 
         $response = new Response($code, null, $listaPokemon, $request->getAccept());

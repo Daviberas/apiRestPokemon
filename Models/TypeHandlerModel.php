@@ -13,19 +13,22 @@ class TypeHandlerModel
 
         $valid = self::isValid($id);
 
-        if ($valid === true || $id == null) {
+        if ($valid === true || $id == null)
+        {
             $query = "SELECT " . \ConstantesDB\ConsTypeModel::ID . ","
                 . \ConstantesDB\ConsTypeModel::NAME
                 . " FROM " . \ConstantesDB\ConsTypeModel::TABLE_NAME;
 
 
-            if ($id != null) {
+            if ($id != null)
+            {
                 $query = $query . " WHERE " . \ConstantesDB\ConsTypeModel::ID . " = ?";
             }
 
             $prep_query = $db_connection->prepare($query);
 
-            if ($id != null) {
+            if ($id != null)
+            {
                 $prep_query->bind_param('s', $id);
             }
 
@@ -33,13 +36,14 @@ class TypeHandlerModel
             $listaTypes = array();
 
             $prep_query->bind_result($id, $name);
-            while ($prep_query->fetch()) {
+            while ($prep_query->fetch())
+            {
                 $name = utf8_encode($name);
                 $type = new TypeModel($id,$name);
                 $listaTypes[] = $type;
             }
         }
-        $db_connection->close();
+        $db->closeConnection();
 
         return $listaTypes;
     }
@@ -49,7 +53,8 @@ class TypeHandlerModel
     {
         $res = false;
 
-        if (ctype_digit($id)) {
+        if (ctype_digit($id))
+        {
             $res = true;
         }
         return $res;

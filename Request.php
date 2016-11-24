@@ -39,7 +39,8 @@ class Request
     {
         $parameters = array();
 
-        switch ($content_type) {
+        switch ($content_type)
+        {
             case "application/json":
                 $this->format = "json";
                 $parameters = json_decode($body);
