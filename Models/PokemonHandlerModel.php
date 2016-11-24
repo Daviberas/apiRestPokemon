@@ -42,7 +42,7 @@ class PokemonHandlerModel
                 $listaPokemon[] = $pokemon;
             }
         }
-        $db_connection->close();
+        $db->closeConnection();
 
         return $listaPokemon;
     }
