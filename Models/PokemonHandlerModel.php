@@ -39,6 +39,7 @@ class PokemonHandlerModel
             $listaPokemon = array();
 
             $prep_query->bind_result($num, $name, $type1, $type2);
+            $prep_query->store_result();
             while ($prep_query->fetch()) {
                 $name = utf8_encode($name);
                 $pokemon = new PokemonModel($num,$name,$type1,$type2);
@@ -55,7 +56,8 @@ class PokemonHandlerModel
     {
         $res = false;
 
-        if (ctype_digit($id)) {
+        if (ctype_digit($id))
+        {
             $res = true;
         }
         return $res;

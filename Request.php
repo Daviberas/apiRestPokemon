@@ -16,7 +16,8 @@ class Request
         $this->query_string = $query_string;
         $this->parseBody($body, $content_type);
 
-        switch ($accept) {
+        switch ($accept)
+        {
             case 'application/json':
             case '*/*':
             case null:

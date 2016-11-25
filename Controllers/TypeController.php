@@ -12,21 +12,28 @@ class TypeController extends Controller
         $response = null;
         $code = null;
 
-        if (isset($request->getUrlElements()[2])) {
+        if (isset($request->getUrlElements()[2]))
+        {
             $id = $request->getUrlElements()[2];
         }
 
 
         $listaTypes = TypeHandlerModel::getType($id);
 
-        if ($listaTypes != null) {
+        if ($listaTypes != null)
+        {
             $code = '200';
 
-        } else {
+        }
+        else
+        {
 
-            if (TypeHandlerModel::isValid($id)) {
+            if (TypeHandlerModel::isValid($id))
+            {
                 $code = '404';
-            } else {
+            }
+            else
+            {
                 $code = '400';
             }
 

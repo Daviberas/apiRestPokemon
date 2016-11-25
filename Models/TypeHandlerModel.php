@@ -36,6 +36,7 @@ class TypeHandlerModel
             $listaTypes = array();
 
             $prep_query->bind_result($id, $name);
+            $prep_query->store_result();
             while ($prep_query->fetch())
             {
                 $name = utf8_encode($name);

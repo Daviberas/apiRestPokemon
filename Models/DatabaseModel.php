@@ -21,7 +21,8 @@ class DatabaseModel
         $this->_connection = new mysqli($config['host'], $config['username'],
             $config['password'], $config['dbname']);
 
-        if ($this->_connection->connect_error) {
+        if ($this->_connection->connect_error)
+        {
             trigger_error("Failed to connect to MySQL: " . $this->_connection->connect_error,
                 E_USER_ERROR);
         }

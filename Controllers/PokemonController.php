@@ -26,16 +26,15 @@ class PokemonController extends Controller
 
         }
         else
+        {
+            if (PokemonHandlerModel::isValid($id))
             {
-
-                if (PokemonHandlerModel::isValid($id))
-                {
                 $code = '404';
-                }
-                else
-                {
-                    $code = '400';
-                }
+            }
+            else
+            {
+                $code = '400';
+            }
         }
 
         $response = new Response($code, null, $listaPokemon, $request->getAccept());
