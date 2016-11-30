@@ -43,4 +43,28 @@ class TypeController extends Controller
         $response->generate();
 
     }
+
+    public function managePostVerb(Request $request)
+    {
+        $response=null;
+        $code=null;
+        $resultado=null;
+        $type=null;
+        $id = $request->getBodyParameters()[0]->id;
+        $name = $request->getBodyParameters()[0]->name;
+        $type= new TypeModel($id,$name);
+        $resultado=TypeHandlerModel::postType($type);
+
+        if ($request != null)
+        {
+            $code = '200';
+        }
+        else
+        {
+            $code = '400';
+        }
+
+        $response = new Response($code, null, $resultado, $request->getAccept());
+        $response->generate();
+    }
 }

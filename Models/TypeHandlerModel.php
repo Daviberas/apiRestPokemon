@@ -49,6 +49,19 @@ class TypeHandlerModel
         return $listaTypes;
     }
 
+    public static function postType(TypeModel $type){
+        $db=DatabaseModel::getInstance();
+        $connection=$db->getConnection();
+        $query="insert into ". \ConstantesDB\ConsTypeModel::TABLE_NAME.
+            " (".\ConstantesDB\ConsTypeModel::ID.
+            "," . \ConstantesDB\ConsTypeModel::NAME.
+            ") values (".$type->getId().
+            ",'".$type->getName()."');";
+        $prep_query = $connection->prepare($query);
+        $resultado=$prep_query->execute();
+        $db->closeConnection();
+        return $resultado;
+    }
 
     public static function isValid($id)
     {
