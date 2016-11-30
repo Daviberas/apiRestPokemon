@@ -4,7 +4,7 @@ namespace ConstantesDB;
 
 class ConsPokemonModel
 {
-    const TABLE_NAME = "Pokemon";
+    const TABLE_NAME = "pokemon";
     const NAME = "Name";
     const NUM = "PokedexNumber";
     const TYPE1 = "Type1";

@@ -67,4 +67,55 @@ class TypeController extends Controller
         $response = new Response($code, null, $resultado, $request->getAccept());
         $response->generate();
     }
+
+    public function manageDeleteVerb(Request $request)
+    {
+        $response=null;
+        $code=null;
+        $type=null;
+        $id = null;
+        if (isset($request->getUrlElements()[2]))
+        {
+            $id = $request->getUrlElements()[2];
+        }
+
+        if($id!=null)
+            TypeHandlerModel::deleteType($id);
+
+        if ($request != null)
+        {
+            $code = '200';
+        }
+        else
+        {
+            $code = '400';
+        }
+
+        $response = new Response($code, null, null, $request->getAccept());
+        $response->generate();
+    }
+
+    public function managePutVerb(Request $request)
+    {
+        $response=null;
+        $code=null;
+        $resultado=null;
+        $type=null;
+        $id = $request->getBodyParameters()[0]->id;
+        $name = $request->getBodyParameters()[0]->name;
+        $type= new TypeModel($id,$name);
+        $resultado=TypeHandlerModel::putType($type);
+
+        if ($request != null)
+        {
+            $code = '200';
+        }
+        else
+        {
+            $code = '400';
+        }
+
+        $response = new Response($code, null, $resultado, $request->getAccept());
+        $response->generate();
+    }
 }

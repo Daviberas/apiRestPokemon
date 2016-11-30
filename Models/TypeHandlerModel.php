@@ -63,6 +63,28 @@ class TypeHandlerModel
         return $resultado;
     }
 
+    public static function deleteType($id)
+    {
+        $db=DatabaseModel::getInstance();
+        $connection=$db->getConnection();
+        $query="delete from ". \ConstantesDB\ConsTypeModel::TABLE_NAME." where ".\ConstantesDB\ConsTypeModel::ID . " = " .$id;
+        $prep_query = $connection->prepare($query);
+        $prep_query->execute();
+        $db->closeConnection();
+    }
+
+    public static function putType(TypeModel $type)
+    {
+        $db=DatabaseModel::getInstance();
+        $connection=$db->getConnection();
+        $query="update ".\ConstantesDB\ConsTypeModel::TABLE_NAME . " set ". \ConstantesDB\ConsTypeModel::NAME . " = '"
+            .$type->getName() ."' where ".\ConstantesDB\ConsTypeModel::ID . " = " .$type->getId();
+        $prep_query = $connection->prepare($query);
+        $resultado=$prep_query->execute();
+        $db->closeConnection();
+        return $resultado;
+    }
+
     public static function isValid($id)
     {
         $res = false;

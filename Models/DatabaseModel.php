@@ -18,8 +18,7 @@ class DatabaseModel
     {
         $config = parse_ini_file('Config/config.ini');
 
-        $this->_connection = new mysqli($config['host'], $config['username'],
-            $config['password'], $config['dbname']);
+        $this->_connection = new mysqli($config['host'], $config['username'],$config['password'], $config['dbname']);
 
         if ($this->_connection->connect_error)
         {
